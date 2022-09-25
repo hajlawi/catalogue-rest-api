@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="col-sm-8 col-sm-offset-2" >
+    <form #f="ngForm" (ngSubmit)="addProduct(f.value)">
+      <div class="form-group">
+      <label for="des">Designation</label>
+      <input type="text" id="des"  class="form-control" name="designation" ngModel>
+      </div>
+      <div class="form-group">
+      <label for="prix">Prix</label>
+      <input type="text" id="prix"  class="form-control" name="prix" ngModel>
+      </div>
+      <div class="form-group">
+      <label for="qte">Qunatité</label>
+      <input type="text" id="qte" class="form-control" name="quantite" ngModel>
+        <button type="submit" class="btn btn-success">save</button>
+      </div>
+    </form>
+  </div>
+</div>

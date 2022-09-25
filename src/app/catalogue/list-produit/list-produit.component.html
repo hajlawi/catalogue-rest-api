@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">liste des produits</div>
+    <div class="panel-body">
+      <form #f="ngForm" (ngSubmit)="onFetch(f.value)">
+        <div class="form-group">
+          <label >motcle</label>
+          <input type="text" name="mc" ngModel>
+          <button type="submit"class="btn btn-primary">chercher</button>
+        </div>
+      </form>
+      <table ng *ngIf="produits" class="table table-striped">
+<tr>
+  <th>ID</th>
+  <th>DESIGNATION</th>
+  <th>PRIX</th>
+  <th>QTE</th>
+</tr>
+        <tr *ngFor="let p of produits._embedded.produits ">
+          <td>{{p.id}}</td>
+          <td>{{p.designation}}</td>
+          <td>{{p.prix|number:'0.2'}}</td>
+          <td>{{p.quantite}}</td>
+          <td (click)="OnEditContact(p)" class="clicable">edit</td>
+          <td (click)="OnDeleteContact(p)" class="clicable">delete</td>
+        </tr>
+      </table>
+      <ul  class="nav nav-pills">
+        <li [ngClass]="{'active':i==currentpage}" *ngFor="let p of pages;let i =index">
+          <a (click)="onLoad(i)">{{i}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
